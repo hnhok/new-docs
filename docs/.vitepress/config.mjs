@@ -19,6 +19,12 @@ export default defineConfig({
                 ]
             },
             {
+                text: '⚡ 脚手架体系使用指南',
+                items: [
+                    { text: '积木箱克隆与安全组参数配置', link: '/quick-start' }
+                ]
+            },
+            {
                 text: '💻 微服务指南 (Microservices)',
                 items: [
                     { text: '1️⃣ 舰长指挥室 (Vue3 Admin)', link: '/frontend' },
