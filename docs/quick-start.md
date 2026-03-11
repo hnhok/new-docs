@@ -6,16 +6,32 @@
 
 ---
 
-## 🛠️ 第一阶段：母体克隆 (Clone Base)
+## 🛠️ 第一阶段：母体切断与极速克隆 (Clone Base)
 
-因为各微服务之间有着低耦合的物理防线，建议你依然保持它们作为多体仓库存在。
+摒弃传统“傻瓜式”的手工复制再到处寻找 `.git` 文件夹删除的原始操作！对于这种多端全栈星舰级的架构，我们提供了两种极其优雅的“工业级”克隆洗礼。
 
-### 1. 搬运源代码的极速方式
-1. 将当前主机上的根目录（比如 `D:\new`）连同里面的四个微仓库（`backend`、`frontend`、`h5`、`docs`）一并拷贝。
-2. 🚨 **致命注意事项**：你必须在新电脑/新项目的这些子文件夹内，删除掉所有隐藏的 `.git` 文件夹！这是为了切断它们与这套老 Github 仓库的灵魂锁链。
-   - `rm -rf frontend/.git backend/.git h5/.git docs/.git`
-3. 为这四个无主的新仓库，在你的 Github 或 Gitlab 账号下新建四个纯净的空存储库。
-4. 进入各子目录，重新 `git init` 并推向你全新的远程阵地。
+### 方案 A：终端里的“全自动一键降临” (强烈推荐)
+
+如果你想瞬间在电脑上孵化这套包含四个微服务内核的新宇宙，且不残留上一个主人的任何一条提交记录和历史脏数据。可以直接在你的命令行空投这段**一行代码装配线**：
+
+*(以新建 `my-new-cms` 文件夹为例)*
+
+**🔗 对于 Mac / Linux / Git Bash 环境：**
+```bash
+mkdir my-new-cms && cd my-new-cms
+git clone --depth 1 https://github.com/hnhok/new-backend.git backend
+git clone --depth 1 https://github.com/hnhok/new-fronntend.git frontend
+git clone --depth 1 https://github.com/hnhok/new-h5.git h5
+git clone --depth 1 https://github.com/hnhok/new-docs.git docs
+rm -rf */.git backend/prisma/dev.db
+```
+
+*(✨ **原理解析**：这段充满魔法的命令使用了参数 `--depth 1`。这代表它不仅拥有光速下载能力，而且天生**自动切断且不挂载过去的旧历史链条**，随后 `rm -rf` 指令精准无误地蒸发掉了各个目录的所有骨架壳与 `dev.db` 脏数据。这让你的新工作站立刻犹如白纸一般干净！)*
+
+### 方案 B：GitHub 官方模板克隆 (Template Repo)
+我们正在计划将这四大仓库设置为 `Template Repository`。你在其它团队或者企业的新电脑上，甚至连终端都不用打开，直接在页面上点击超大的绿色按钮 **[Use this template]**。GitHub 也会在 1 秒钟内为你生成剥掉各种旧羁绊体系的超凡克隆体！
+
+---
 
 ### 2. 本地数据库剥离预热
 在新项目的 `backend` 里：
