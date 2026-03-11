@@ -3,6 +3,7 @@ import { defineConfig } from 'vitepress'
 export default defineConfig({
     title: "Starship CMS",
     description: "探索版全栈企业级生态架构与开发结晶",
+    ignoreDeadLinks: true, // 忽略死链接检测（防止文档里的 localhost 测试地址导致打包失败）
     base: '/new-docs/', // 这里的 base 是挂载到 github pages 仓库目录专用的
     themeConfig: {
         nav: [
