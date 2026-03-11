@@ -12,9 +12,17 @@ export default defineConfig({
 
         sidebar: [
             {
-                text: '🌍 架构档案',
+                text: '🌍 生态与哲学档案',
                 items: [
                     { text: '全栈生态白皮书', link: '/whitepaper' }
+                ]
+            },
+            {
+                text: '💻 微服务指南 (Microservices)',
+                items: [
+                    { text: '1️⃣ 舰长指挥室 (Vue3 Admin)', link: '/frontend' },
+                    { text: '2️⃣ 数据神经中枢 (NestJS Backend)', link: '/backend' },
+                    { text: '3️⃣ 玻璃态视界 (H5 Consumer)', link: '/h5' }
                 ]
             }
         ],
